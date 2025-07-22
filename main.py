@@ -3,6 +3,7 @@ import utils
 import strat
 import btrack
 
+# Function to check if the input is 9 integers as required. If ok, save them into the board array.
 def input_row_to_array(input_row,board,row):
     row_ok = 0
     input_row = input_row.split(',')
@@ -21,6 +22,7 @@ def input_row_to_array(input_row,board,row):
         board[row] = input_row
         return row_ok
 
+# Function to request user to enter 9 rows of 9 numbers to be saved as the board to be solved
 def input_to_board():
     board = np.zeros((9, 9))
     row_no = 0
@@ -32,6 +34,7 @@ def input_to_board():
         row_no += 1
     return board
 
+# Function to allow amendments to the currently filled board
 def amend_row(amend_input,A_in):
     amended = 0
     try:
@@ -48,6 +51,12 @@ def amend_row(amend_input,A_in):
         amended = 1
     return amended
 
+# Start of the Sudoku solver
+# The Sudoku solver goes through the following steps:
+# 1. Asks the user to choose to reload the previous board/puzzle or to enter a new puzzle
+# 2. Allows the user to amend/make changes to the entered puzzle
+# 3. Asks the user if the puzzle should be solved by the backtracking method or using Sudoku strategies
+# 4. Run the selected solver and display the results
 print("Welcome to the Sudoku solver!")
 print()
 print("Would you like to:")
