@@ -35,6 +35,8 @@ def backtrack_n_find_branch(S):
     branched_off = 0
     while branched_off == 0:
         S_curr = S.pop()
+        if len(S) == 0:
+            return -1
         A_curr = np.copy(S[-1][0])
         cell_no = S_curr[1]
         row = cell_no // 9
@@ -46,6 +48,7 @@ def backtrack_n_find_branch(S):
                 S.append((A_curr, cell_no, next_choice))
                 branched_off = 1
                 break
+    return 1
 
 
 # To solve by backtracking, start filling the empty cells one-by-one, and check if any errors are detected.
@@ -61,7 +64,10 @@ def run_backtrack_solver(A):
             # input("Press any key to continue")
         if utils.puzzle_complete(S[-1][0]) and not (utils.check4errors(S[-1][0])):
             break
-        backtrack_n_find_branch(S)
+        btrack_status = backtrack_n_find_branch(S)
+        if btrack_status == -1:
+            print("Error when backtracking, no solution possible!")
+            break
         print(f"Filled in {S[-1][1:3]}")
         utils.show_puzzle(S[-1][0])
         # input("Press any key to continue")

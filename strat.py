@@ -362,71 +362,28 @@ def run_solve(A):
     print("Start state:")
     utils.show_puzzle(A)
     print()
+    strategies = [
+        'check_obvious_singles',
+        'check_hidden_singles',
+        'check_obvious_pairs',
+        'check_obvious_triplets',
+        'check_hidden_pairs',
+        'check_pointing_pair_trip_sqr',
+        'check_pointing_pair_trip_rowcol'
+    ]
     made_change = 1
     while made_change != 0:
         made_change = 0
-        print('check_obvious_singles')
-        made_change += check_obvious_singles(A)
-        if utils.check4errors(A):
-            break
-        elif utils.puzzle_complete(A):
-            print("Puzzle completed!")
-            utils.show_puzzle(A)
-            break
-
-        print('check_hidden_singles')
-        made_change += check_hidden_singles(A)
-        if utils.check4errors(A):
-            break
-        elif utils.puzzle_complete(A):
-            print("Puzzle completed!")
-            utils.show_puzzle(A)
-            break
-
-        print('check_obvious_pairs')
-        made_change += check_obvious_pairs(A)
-        if utils.check4errors(A):
-            break
-        elif utils.puzzle_complete(A):
-            print("Puzzle completed!")
-            utils.show_puzzle(A)
-            break
-
-        print('check_obvious_triplets')
-        made_change += check_obvious_triplets(A)
-        if utils.check4errors(A):
-            break
-        elif utils.puzzle_complete(A):
-            print("Puzzle completed!")
-            utils.show_puzzle(A)
-            break
-
-        print('check_hidden_pairs')
-        made_change += check_hidden_pairs(A)
-        if utils.check4errors(A):
-            break
-        elif utils.puzzle_complete(A):
-            print("Puzzle completed!")
-            utils.show_puzzle(A)
-            break
-
-        print('check_pointing_pair_trip_sqr')
-        made_change += check_pointing_pair_trip_sqr(A)
-        if utils.check4errors(A):
-            break
-        elif utils.puzzle_complete(A):
-            print("Puzzle completed!")
-            utils.show_puzzle(A)
-            break
-
-        print('check_pointing_pair_trip_rowcol')
-        made_change += check_pointing_pair_trip_rowcol(A)
-        if utils.check4errors(A):
-            break
-        elif utils.puzzle_complete(A):
-            print("Puzzle completed!")
-            utils.show_puzzle(A)
-            break
+        for strat_name in strategies:
+            print(strat_name)
+            strategy_fn = globals()[strat_name]
+            made_change += strategy_fn(A)
+            if utils.check4errors(A):
+                break
+            elif utils.puzzle_complete(A):
+                print("Puzzle completed!")
+                utils.show_puzzle(A)
+                break
 
     else:
         print("Stuck! No change after cyling through all strategies.")
