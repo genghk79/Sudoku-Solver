@@ -40,7 +40,7 @@ def save_puzzle(fname, board):
     with open(fname, 'w') as f:
         for row in range(9):
             for col in range(9):
-                f.write(str(board[row,col]))
+                f.write(str(int(board[row,col])))
                 if col<8:
                     f.write(',')
             if row<8:

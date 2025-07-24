@@ -55,7 +55,7 @@ def backtrack_n_find_branch(S):
 # Once an error occurs, backtrack to find the next branch, and start filling cells one-by one from there.
 # Repeat until the correct branch is found, which leads to the correct answer.
 def run_backtrack_solver(A):
-    S = [(A, -1, 0)]
+    S = [(A,0,0)]
     while True:
         while not (utils.check4errors(S[-1][0])) and not (utils.puzzle_complete(S[-1][0])):
             find_next_empty_n_fill(S)

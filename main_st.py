@@ -130,7 +130,7 @@ def solve_strat(A):
 
 def solve_btrack(A):
     if "S" not in st.session_state:
-        st.session_state.S = [(A, -1, 0)]
+        st.session_state.S = [(A, 0, 0)]
     while True:
         while not (utils.check4errors(st.session_state.S[-1][0])) and not (utils.puzzle_complete(st.session_state.S[-1][0])):
             btrack.find_next_empty_n_fill(st.session_state.S)
