@@ -1,4 +1,5 @@
 # Sudoku Solver
+Streamlit version [here](https://sudoku-solver-6hoqkygtns5gqgxnkr2bnc.streamlit.app/)!  
 
 ## Introduction
 
@@ -7,6 +8,14 @@ Welcome to my Sudoku solver. This is just a personal project I embarked on to ge
 Two different solvers have been coded:  
 1. A solver that uses conventional Sudoku strategies to systematically eliminate possibilities, and 
 2. A brute-force solver that uses the backtracking algorithm.
+
+## How to use
+
+You can run the Sudoku solver just by running `main.py` in Python and following the instructions.  
+A sample puzzle (saved in the file `last_used_puzzle.txt`) can be loaded for quick testing.  
+
+Or you could just try the browser-based version here: [My Sudoku Solver](https://sudoku-solver-6hoqkygtns5gqgxnkr2bnc.streamlit.app/)
+
 
 ## Data Structure
 
@@ -39,7 +48,7 @@ This process continues until the whole puzzle is filled without any errors.
 ## Work in-progress
 
 Things that I'd still like to do:  
-- Make a UI. Probably using Streamlit for starters. One day I might try Pygame or Pyglet.
+- Try making a better UI with Pygame or Pyglet.
 - Finish coding Hidden Triplets, X-wing, Y-wing and Swordfish. 
 - Tidy up the strategy codes more. At the moment there are still many layers of nested loops.
 - Figure out if there's a way to increase the efficiency (on average) of the backtrack algorithm.
