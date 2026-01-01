@@ -52,4 +52,4 @@ Things that I'd still like to do:
 - Finish coding Hidden Triplets, X-wing, Y-wing and Swordfish. 
 - Tidy up the strategy codes more. At the moment there are still many layers of nested loops.
 - Figure out if there's a way to increase the efficiency (on average) of the backtrack algorithm.
-- Compare how much faster solving by strategy is compared to backtracking.
+- Use OpenCV to allow users to input new puzzles by simply uploading an image of the Sudoku board. 
